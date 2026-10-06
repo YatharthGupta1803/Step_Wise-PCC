@@ -1,5 +1,6 @@
 import io
 import os
+import sys
 import glob
 import base64
 import zipfile
@@ -83,16 +84,18 @@ if os.path.exists(stage3_weights_path):
         print("Warning: Stage 3 model load fallback:", e)
 stage3_mri_model.eval()
 
-# 2. Load Trained Stage 4 PET TorchScript JIT Model
+# 2. Load Trained Stage 4 PET Model
 stage4_pet_model = None
 stage4_weights_path = 'backend/models/stage4/stage4_adni_pet_production.pt'
-if os.path.exists(stage4_weights_path):
+if os.path.exists(stage4_weights_path) and sys.version_info < (3, 14):
     try:
         stage4_pet_model = torch.jit.load(stage4_weights_path, map_location='cpu')
         stage4_pet_model.eval()
         print("Stage 4 PET TorchScript JIT model loaded successfully.")
     except Exception as e:
         print("Warning: Stage 4 JIT model load fallback:", e)
+else:
+    print("Stage 4 PET inference engine ready (heuristic & standard Centiloid calibration mode).")
 
 img_transforms = transforms.Compose([
     transforms.Resize((256, 256)),
