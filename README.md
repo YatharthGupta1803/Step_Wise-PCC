@@ -507,14 +507,6 @@ npm run dev
 
 ---
 
-## 👥 Team & Acknowledgments
-
-**Team Litchi** — GE Healthcare Precision Care Challenge 2026:
-* **Yatharth Gupta** — *AI/ML Lead & System Architect*
-* **Avyukt Sisodia** — *Clinical Data Strategy & Biomarker Harmonization*
-* **Ashish Kumar** — *Full-Stack Engineering & Healthcare Interoperability*
-* **Akhshat Sharma** — *Computer Vision & Health-Economics Modeling*
-
 ### Data Acknowledgments
 Data used in preparation of this project were obtained from the **Alzheimer's Disease Neuroimaging Initiative (ADNI)** database (`adni.loni.usc.edu`), the **Open Access Series of Imaging Studies (OASIS)**, and the **Longitudinal Aging Study in India (LASI-DAD)**.
 
